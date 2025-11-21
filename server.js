@@ -7,6 +7,7 @@ const connectDB = require('./config/db');
 const productRoutes = require('./routes/products');
 const supplierRoutes = require('./routes/suppliers');
 const orderRoutes = require('./routes/orders');
+const authRoutes = require('./routes/auth'); // Add this line
 
 const app = express();
 app.use(express.json());
@@ -19,6 +20,7 @@ connectDB().catch(() => {}); // uses process.env.MONGODB_URI
 
 app.get('/', (req, res) => res.send('Inventory API is running'));
 
+app.use('/api/auth', authRoutes); // Add this line
 app.use('/api/products', productRoutes);
 app.use('/api/suppliers', supplierRoutes);
 app.use('/api/orders', orderRoutes);
