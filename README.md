@@ -5,10 +5,7 @@ A simple RESTful API for managing store inventory — including **Products**, **
 ---
 
 ## 🌐 Base URL
-https://se2-midterm-project-1.onrender.com
-
-## Local base URL
-http://localhost:3000
+https://se2-project-oeyi.onrender.com
 
 ---
 
