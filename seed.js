@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const Product = require('./models/Product');
 const Supplier = require('./models/Supplier');
 const Order = require('./models/Order');
+const User = require('./models/User'); // Add this line
 
 const seed = async () => {
   try {
@@ -14,6 +15,19 @@ const seed = async () => {
     await Product.deleteMany({});
     await Supplier.deleteMany({});
     await Order.deleteMany({});
+    await User.deleteMany({}); // Add this line
+
+     // Create admin user
+    const adminUser = await User.create({
+      username: 'admin',
+      email: 'admin@inventory.com',
+      password: 'admin123',
+      role: 'admin'
+    });
+
+    console.log('Admin user created:', adminUser.email);
+
+    // ... rest of your existing seed code
 
     // 🏢 Suppliers
     const suppliers = await Supplier.insertMany([
